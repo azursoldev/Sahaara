@@ -13,7 +13,7 @@
     <style>
         body {
             font-family: 'Plus Jakarta Sans', sans-serif;
-            background: linear-gradient(135deg, #0e241c 0%, #1a4d3e 100%);
+            background: linear-gradient(135deg, #0b1528 0%, #1e293b 100%);
             min-height: 100vh;
             display: flex;
             align-items: center;
@@ -24,21 +24,23 @@
         .login-card {
             background: #ffffff;
             border-radius: 18px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+            box-shadow: 0 20px 40px rgba(11, 21, 40, 0.45);
             width: 100%;
             max-width: 440px;
             overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.1);
         }
 
         .login-header {
-            background-color: #14352a;
+            background-color: #0f172a;
             color: #ffffff;
-            padding: 30px 25px;
+            padding: 32px 25px;
             text-align: center;
+            border-bottom: 1px solid rgba(255,255,255,0.06);
         }
 
         .btn-login {
-            background-color: #1a4d3e;
+            background-color: #1e3a8a;
             color: white;
             font-weight: 700;
             padding: 12px;
@@ -48,7 +50,7 @@
         }
 
         .btn-login:hover {
-            background-color: #13392e;
+            background-color: #172554;
             color: white;
         }
     </style>
@@ -57,7 +59,7 @@
 
     <div class="login-card">
         <div class="login-header">
-            <div class="bg-success bg-opacity-25 text-warning rounded-circle d-inline-flex p-3 mb-2 fs-2">
+            <div class="bg-primary bg-opacity-25 text-primary-emphasis rounded-circle d-inline-flex p-3 mb-2 fs-2 text-white">
                 <i class="bi bi-shield-lock-fill"></i>
             </div>
             <h4 class="fw-bold mb-1">SAHAARA ADMIN</h4>
@@ -79,9 +81,9 @@
 
             <!-- Quick Demo Credentials Box -->
             <div class="p-3 bg-light rounded-3 border mb-4 small">
-                <div class="fw-bold text-success mb-1 d-flex align-items-center justify-content-between">
+                <div class="fw-bold text-primary mb-1 d-flex align-items-center justify-content-between">
                     <span><i class="bi bi-key-fill me-1"></i> Admin Credentials</span>
-                    <button type="button" class="btn btn-sm btn-outline-success py-0 px-2" style="font-size: 0.75rem;" onclick="document.getElementById('email').value='admin@sahaara.com'; document.getElementById('password').value='admin123';">
+                    <button type="button" class="btn btn-sm btn-outline-primary py-0 px-2" style="font-size: 0.75rem;" onclick="document.getElementById('email').value='admin@sahaara.com'; document.getElementById('password').value='admin123';">
                         Auto-Fill
                     </button>
                 </div>

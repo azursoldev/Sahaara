@@ -13,14 +13,14 @@
         }
         .janazah-card {
             box-shadow: none !important;
-            border: 2px solid #1a4d3e !important;
+            border: 2px solid #1e3a8a !important;
         }
     }
 
     .janazah-card {
         background: #ffffff;
-        border: 3px double #c29b38;
-        border-radius: 16px;
+        border: 3px double #d97706;
+        border-radius: 18px;
         position: relative;
         overflow: hidden;
     }
@@ -29,7 +29,7 @@
         position: absolute;
         width: 40px;
         height: 40px;
-        border-color: #c29b38;
+        border-color: #d97706;
         border-style: solid;
     }
     .top-left { top: 10px; left: 10px; border-width: 3px 0 0 3px; }
@@ -84,7 +84,7 @@
                     <div class="font-arabic fs-4 text-secondary mb-1">
                         بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ
                     </div>
-                    <div class="font-arabic fs-3 text-success fw-bold mb-1">
+                    <div class="font-arabic fs-3 text-primary fw-bold mb-1">
                         كُلُّ نَفۡسٍ ذَآئِقَۃُ الۡمَوۡتِ ؕ
                     </div>
                     <div class="font-arabic fs-2 text-danger fw-bold mb-3">
@@ -99,7 +99,7 @@
                 <div class="text-center mb-4">
                     <p class="text-muted small mb-2">Afsos-naak ailaan kiya jata hai ke hamare azeez</p>
                     
-                    <h2 class="fw-bold text-dark mb-1" style="color: #1a4d3e !important;">
+                    <h2 class="fw-bold text-dark mb-1" style="color: #1e3a8a !important;">
                         {{ $announcement->deceased_name }}
                     </h2>
 
@@ -143,7 +143,7 @@
 
                         <div class="col-12 border-top pt-3">
                             <div class="d-flex align-items-start gap-3">
-                                <div class="rounded-circle bg-success bg-opacity-10 text-success p-3 fs-4">
+                                <div class="rounded-circle bg-primary bg-opacity-10 text-primary p-3 fs-4">
                                     <i class="bi bi-geo-alt-fill"></i>
                                 </div>
                                 <div>
@@ -173,7 +173,7 @@
                 <!-- Additional Instructions / Soyem -->
                 @if($announcement->additional_details)
                     <div class="p-3 bg-white border border-secondary border-opacity-25 rounded-3 mb-4">
-                        <div class="small fw-bold text-success mb-1"><i class="bi bi-info-circle me-1"></i> Mazeed Maloomat / Soyem:</div>
+                        <div class="small fw-bold text-primary mb-1"><i class="bi bi-info-circle me-1"></i> Mazeed Maloomat / Soyem:</div>
                         <div class="text-secondary small">{{ $announcement->additional_details }}</div>
                     </div>
                 @endif
@@ -183,8 +183,8 @@
                     <div class="small text-muted mb-1">Dua-e-Maghfirat ke talabgaar:</div>
                     <div class="fw-bold text-dark fs-6">{{ $announcement->family_member_name }}</div>
                     <div class="small">
-                        <i class="bi bi-telephone-fill text-success me-1"></i>
-                        <a href="tel:{{ $announcement->contact_phone }}" class="text-decoration-none text-success fw-bold">
+                        <i class="bi bi-telephone-fill text-primary me-1"></i>
+                        <a href="tel:{{ $announcement->contact_phone }}" class="text-decoration-none text-primary fw-bold">
                             {{ $announcement->contact_phone }}
                         </a>
                     </div>
@@ -200,7 +200,7 @@
                 <button class="btn btn-outline-secondary btn-sm me-2" onclick="navigator.clipboard.writeText(window.location.href); alert('Card Link Copied!');">
                     <i class="bi bi-link-45deg me-1"></i> Card Link Copy Karein
                 </button>
-                <a href="{{ route('janazah.create') }}" class="btn btn-outline-success btn-sm">
+                <a href="{{ route('janazah.create') }}" class="btn btn-outline-primary btn-sm">
                     <i class="bi bi-plus-circle me-1"></i> Ek Aur Janazah Card Banayein
                 </a>
             </div>
@@ -209,4 +209,3 @@
     </div>
 </div>
 @endsection
-

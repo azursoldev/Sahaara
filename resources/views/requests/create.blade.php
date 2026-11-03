@@ -8,7 +8,8 @@
         <div class="col-lg-9">
 
             <!-- Header Banner -->
-            <div class="bg-danger text-white rounded-4 p-4 mb-4 shadow-sm position-relative overflow-hidden">
+            <div class="text-white rounded-4 p-4 mb-4 shadow-sm position-relative overflow-hidden" 
+                 style="background: linear-gradient(135deg, #b91c1c 0%, #991b1b 100%);">
                 <div class="d-flex align-items-center gap-3">
                     <div class="rounded-circle bg-white text-danger p-3 d-flex align-items-center justify-content-center fs-2 shadow-sm" style="width: 60px; height: 60px;">
                         <i class="bi bi-bell-fill"></i>
@@ -27,7 +28,7 @@
 
                 <!-- Section 1: Services Selection -->
                 <div class="mb-4">
-                    <h5 class="fw-bold text-success border-bottom pb-2 mb-3">
+                    <h5 class="fw-bold text-primary border-bottom pb-2 mb-3">
                         <i class="bi bi-check2-square me-2"></i> 1. Aapko Kin Khidmaat Ki Zaroorat Hai? (Select Services)
                     </h5>
 
@@ -59,7 +60,7 @@
                                 <input class="form-check-input ms-0 me-3" type="checkbox" name="services_needed[]" value="kafan" id="srv_kafan" 
                                     {{ old('services_needed') ? (in_array('kafan', old('services_needed')) ? 'checked' : '') : ($preselectedService == 'kafan' ? 'checked' : 'checked') }}>
                                 <label class="form-check-label fw-bold d-block" for="srv_kafan">
-                                    <i class="bi bi-box-seam-fill text-success me-1"></i> Kafan & Tajheez Saman Box
+                                    <i class="bi bi-box-seam-fill text-secondary me-1"></i> Kafan & Tajheez Saman Box
                                     <span class="d-block small text-muted fw-normal">Lattha kapra, Kafoor, Gulab Arq, Itar, Sabun, Bardana.</span>
                                 </label>
                             </div>
@@ -70,7 +71,7 @@
                                 <input class="form-check-input ms-0 me-3" type="checkbox" name="services_needed[]" value="qabar" id="srv_qabar" 
                                     {{ old('services_needed') ? (in_array('qabar', old('services_needed')) ? 'checked' : '') : ($preselectedService == 'qabar' ? 'checked' : '') }}>
                                 <label class="form-check-label fw-bold d-block" for="srv_qabar">
-                                    <i class="bi bi-layers-fill text-secondary me-1"></i> Qabar & Gor-kan Intezamat
+                                    <i class="bi bi-layers-fill text-dark me-1"></i> Qabar & Gor-kan Intezamat
                                     <span class="d-block small text-muted fw-normal">Qabar ki khudaai, cement ke paat (slabs), eentein, takhti.</span>
                                 </label>
                             </div>
@@ -83,7 +84,7 @@
 
                 <!-- Section 2: City & Marhoom Details -->
                 <div class="mb-4">
-                    <h5 class="fw-bold text-success border-bottom pb-2 mb-3">
+                    <h5 class="fw-bold text-primary border-bottom pb-2 mb-3">
                         <i class="bi bi-person-heart me-2"></i> 2. Shehar & Marhoom/Marhooma Ki Maloomat
                     </h5>
 
@@ -121,7 +122,7 @@
 
                 <!-- Section 3: Contact Person Details -->
                 <div class="mb-4">
-                    <h5 class="fw-bold text-success border-bottom pb-2 mb-3">
+                    <h5 class="fw-bold text-primary border-bottom pb-2 mb-3">
                         <i class="bi bi-telephone-fill me-2"></i> 3. Rabta Karne Wale Ki Maloomat (Contact Person)
                     </h5>
 
@@ -148,7 +149,7 @@
 
                 <!-- Section 4: Address / Location -->
                 <div class="mb-4">
-                    <h5 class="fw-bold text-success border-bottom pb-2 mb-3">
+                    <h5 class="fw-bold text-primary border-bottom pb-2 mb-3">
                         <i class="bi bi-geo-alt-fill me-2"></i> 4. Pata (Location / Address)
                     </h5>
 
@@ -169,11 +170,11 @@
                 </div>
 
                 <!-- Section 5: Welfare / Mustahiq Support -->
-                <div class="mb-4 p-3 rounded-3 border border-success bg-success bg-opacity-10">
+                <div class="mb-4 p-3 rounded-3 border border-primary bg-primary bg-opacity-10">
                     <div class="form-check form-switch fs-5">
                         <input class="form-check-input" type="checkbox" role="switch" name="is_mustahiq" id="is_mustahiq" value="1" 
                             {{ old('is_mustahiq') || request()->query('mustahiq') ? 'checked' : '' }}>
-                        <label class="form-check-label fw-bold text-success" for="is_mustahiq">
+                        <label class="form-check-label fw-bold text-primary" for="is_mustahiq">
                             Mustahiq Imdaad (Free Support Chahiye)
                         </label>
                     </div>
@@ -194,7 +195,7 @@
                         <i class="bi bi-send-fill me-2"></i> Request Submit Karein (Foran Rabta Hoga)
                     </button>
                     <div class="text-center small text-muted mt-2">
-                        <i class="bi bi-shield-lock-fill text-success"></i> Aapki maloomat mehfooz hain aur sirf zaroori helpline & providers ko assign hongi.
+                        <i class="bi bi-shield-lock-fill text-primary"></i> Aapki maloomat mehfooz hain aur sirf zaroori helpline & providers ko assign hongi.
                     </div>
                 </div>
 
@@ -204,4 +205,3 @@
     </div>
 </div>
 @endsection
-

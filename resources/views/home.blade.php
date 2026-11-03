@@ -7,7 +7,7 @@
 
     <!-- Hero Section -->
     <div class="p-4 p-md-5 mb-4 rounded-4 text-white position-relative overflow-hidden" 
-         style="background: linear-gradient(135deg, #112a22 0%, #1a4d3e 60%, #246351 100%); box-shadow: 0 10px 30px rgba(26, 77, 62, 0.2);">
+         style="background: linear-gradient(135deg, #0b1528 0%, #172a45 55%, #1e3a5f 100%); box-shadow: 0 12px 36px rgba(11, 21, 40, 0.25);">
         <div class="row align-items-center g-4">
             <div class="col-lg-7">
                 <div class="d-inline-flex align-items-center gap-2 px-3 py-1 rounded-pill bg-white bg-opacity-10 text-warning small fw-bold mb-3 border border-warning border-opacity-25">
@@ -29,7 +29,7 @@
                         <i class="bi bi-bell-fill me-2"></i> Fauri Madad (Emergency SOS)
                     </a>
                     <a href="{{ route('janazah.create') }}" class="btn btn-light btn-lg px-4 fs-6 fw-bold text-dark">
-                        <i class="bi bi-megaphone-fill me-2 text-danger"></i> Janazah Card Banayein
+                        <i class="bi bi-megaphone-fill me-2 text-primary"></i> Janazah Card Banayein
                     </a>
                 </div>
             </div>
@@ -39,7 +39,7 @@
                 <div class="card border-0 rounded-4 shadow-lg p-4 bg-white text-dark">
                     <h5 class="fw-bold mb-3 d-flex align-items-center justify-content-between">
                         <span><i class="bi bi-geo-alt-fill text-danger me-1"></i> Apna Shehar Muntakhib Karein</span>
-                        <span class="badge bg-success-subtle text-success small">General Cities</span>
+                        <span class="badge bg-primary-subtle text-primary small">General Cities</span>
                     </h5>
                     
                     <form action="{{ route('home') }}" method="GET" class="mb-3">
@@ -60,10 +60,10 @@
                     <div class="p-3 rounded-3 bg-light border d-flex align-items-center justify-content-between">
                         <div>
                             <div class="small text-muted fw-bold">Emergency 24/7 Helpline</div>
-                            <div class="fw-bold fs-5 text-success">0300-SAHAARA</div>
+                            <div class="fw-bold fs-5 text-primary">0300-SAHAARA</div>
                             <div class="text-secondary small">(0300-7242272)</div>
                         </div>
-                        <a href="tel:03007242272" class="btn btn-success rounded-circle p-3 d-flex align-items-center justify-content-center" style="width: 50px; height: 50px;">
+                        <a href="tel:03007242272" class="btn btn-primary rounded-circle p-3 d-flex align-items-center justify-content-center" style="width: 50px; height: 50px; background-color: var(--primary-color);">
                             <i class="bi bi-telephone-fill fs-5"></i>
                         </a>
                     </div>
@@ -83,7 +83,7 @@
     <!-- Main Service Categories Grid -->
     <div class="mb-5">
         <div class="text-center mb-4">
-            <h6 class="text-success text-uppercase fw-bold letter-spacing-1">Khidmaat-e-Mayyat</h6>
+            <h6 class="text-primary text-uppercase fw-bold letter-spacing-1">Khidmaat-e-Mayyat</h6>
             <h2 class="fw-bold">Inteqal Ke Baad Kin Cheezon Ki Zaroorat Hai?</h2>
             <p class="text-muted">Aapki sahoolat ke liye har marhalay ke intezamat alag se dastyab hain:</p>
         </div>
@@ -137,17 +137,17 @@
             <div class="col-md-6 col-lg-4">
                 <div class="card card-custom h-100 p-4">
                     <div class="d-flex align-items-center justify-content-between mb-3">
-                        <div class="rounded-3 p-3 bg-success bg-opacity-10 text-success fs-3">
+                        <div class="rounded-3 p-3 bg-indigo bg-opacity-10 text-indigo fs-3" style="background-color: #ede9fe; color: #6d28d9;">
                             <i class="bi bi-box-seam-fill"></i>
                         </div>
-                        <span class="badge bg-success-subtle text-success px-3 py-2 rounded-pill">Complete Box</span>
+                        <span class="badge bg-secondary-subtle text-dark px-3 py-2 rounded-pill">Complete Box</span>
                     </div>
                     <h5 class="fw-bold">Kafan & Tajheez Saman</h5>
                     <p class="text-muted small">
                         Lattha/Cotton kafan (Mardana 3 pieces, Zananah 5 pieces), Kafoor, Gulab Arq, Itar, Sabun, Looban aur tamam zaroori ashiya.
                     </p>
                     <div class="mt-auto pt-3 border-top d-flex align-items-center justify-content-between">
-                        <a href="{{ route('requests.create') }}?service=kafan" class="btn btn-sm btn-outline-success fw-bold">
+                        <a href="{{ route('requests.create') }}?service=kafan" class="btn btn-sm btn-outline-dark fw-bold">
                             Kafan Box Mangwayein <i class="bi bi-arrow-right"></i>
                         </a>
                         <a href="{{ route('services.category', 'kafan-package') }}" class="small text-muted text-decoration-none">Tafseelat</a>
@@ -201,22 +201,22 @@
 
             <!-- 6. Mustahiq & Free Welfare Support -->
             <div class="col-md-6 col-lg-4">
-                <div class="card card-custom h-100 p-4 border-success" style="background-color: #f7fdfa;">
+                <div class="card card-custom h-100 p-4 border-primary" style="background-color: #f8fafc;">
                     <div class="d-flex align-items-center justify-content-between mb-3">
-                        <div class="rounded-3 p-3 bg-success text-white fs-3">
+                        <div class="rounded-3 p-3 bg-primary text-white fs-3">
                             <i class="bi bi-hand-thumbs-up-fill"></i>
                         </div>
-                        <span class="badge bg-success text-white px-3 py-2 rounded-pill">100% Muft (Free)</span>
+                        <span class="badge bg-primary text-white px-3 py-2 rounded-pill">100% Muft (Free)</span>
                     </div>
-                    <h5 class="fw-bold text-success">Mustahiq Imdaad (Free Support)</h5>
+                    <h5 class="fw-bold text-primary">Mustahiq Imdaad (Free Support)</h5>
                     <p class="text-muted small">
                         Agar koi khandan kharche bardasht nahi kar sakta, toh Sadqah-e-Jariyah aur welfare trusts ke tehat muft kafan dafan kiya jata hai.
                     </p>
                     <div class="mt-auto pt-3 border-top d-flex align-items-center justify-content-between">
-                        <a href="{{ route('requests.create') }}?mustahiq=1" class="btn btn-sm btn-success fw-bold">
+                        <a href="{{ route('requests.create') }}?mustahiq=1" class="btn btn-sm btn-outline-primary fw-bold">
                             Muft Sahulat Request <i class="bi bi-arrow-right"></i>
                         </a>
-                        <span class="small text-success fw-bold">Sadqah Fund</span>
+                        <span class="small text-primary fw-bold">Sadqah Fund</span>
                     </div>
                 </div>
             </div>
@@ -227,7 +227,7 @@
     <div class="card border-0 rounded-4 shadow-sm p-4 mb-5" style="background: #ffffff; border-left: 6px solid var(--primary-color) !important;">
         <div class="row align-items-center g-4">
             <div class="col-md-8">
-                <span class="badge bg-success-subtle text-success mb-2 px-3 py-1">Rehnumai (Guide)</span>
+                <span class="badge bg-primary-subtle text-primary mb-2 px-3 py-1">Rehnumai (Guide)</span>
                 <h4 class="fw-bold mb-2">Kisi Ke Inteqal Par Pehle Kya Karna Chahiye?</h4>
                 <p class="text-muted mb-0 small">
                     Mushkil waqt mein ghabrayein nahi. Step-1: Doctor/Hospital se Death Certificate lein &rarr; Step-2: Ghusl aur Kafan ka intezam &rarr; Step-3: Qabristan mein qabar ki khudaai ki confirmation &rarr; Step-4: Namaz-e-Janazah ka waqt aur ailaan.
@@ -245,7 +245,7 @@
     <div class="mb-5">
         <div class="d-flex justify-content-between align-items-center mb-3">
             <div>
-                <h4 class="fw-bold mb-1"><i class="bi bi-megaphone-fill text-danger me-2"></i>Aane Wali Namaz-e-Janazah</h4>
+                <h4 class="fw-bold mb-1"><i class="bi bi-megaphone-fill text-primary me-2"></i>Aane Wali Namaz-e-Janazah</h4>
                 <p class="text-muted small mb-0">Haqooq-ul-Ibaad aur Maghfirat ki dua ke liye shareek hon</p>
             </div>
             <a href="{{ route('janazah.index') }}" class="btn btn-outline-secondary btn-sm">
@@ -256,12 +256,12 @@
         <div class="row g-3">
             @forelse($upcomingJanazahs as $janazah)
                 <div class="col-md-6 col-lg-4">
-                    <div class="card card-custom h-100 p-3 border-top border-4 border-success">
+                    <div class="card card-custom h-100 p-4 border-top border-4 border-primary">
                         <div class="d-flex justify-content-between align-items-start mb-2">
                             <span class="badge bg-light text-dark border">{{ $janazah->city->name ?? 'General' }}</span>
                             <span class="badge bg-danger-subtle text-danger">{{ $janazah->janazah_date->format('d M, Y') }}</span>
                         </div>
-                        <h6 class="fw-bold text-dark mb-1">{{ $janazah->deceased_name }}</h6>
+                        <h6 class="fw-bold text-dark mb-1 fs-5">{{ $janazah->deceased_name }}</h6>
                         @if($janazah->relation_title)
                             <div class="small text-muted mb-2">({{ $janazah->relation_title }})</div>
                         @endif
@@ -274,7 +274,7 @@
                         </div>
 
                         <div class="pt-2 border-top mt-auto d-flex justify-content-between align-items-center">
-                            <a href="{{ route('janazah.show', $janazah->unique_code) }}" class="btn btn-sm btn-light fw-bold text-success">
+                            <a href="{{ route('janazah.show', $janazah->unique_code) }}" class="btn btn-sm btn-light fw-bold text-primary">
                                 View Card <i class="bi bi-eye"></i>
                             </a>
                             <a href="https://api.whatsapp.com/send?text={{ urlencode('Namaz-e-Janazah Ailaan: ' . $janazah->deceased_name . ' | Waqt: ' . $janazah->janazah_prayer_time . ' | Jaga: ' . $janazah->mosque_or_place . ' | Details: ' . route('janazah.show', $janazah->unique_code)) }}" 
@@ -302,7 +302,7 @@
     <div class="mb-5">
         <div class="d-flex justify-content-between align-items-center mb-3">
             <div>
-                <h4 class="fw-bold mb-1"><i class="bi bi-pin-map-fill text-success me-2"></i>Qabristan Directory</h4>
+                <h4 class="fw-bold mb-1"><i class="bi bi-pin-map-fill text-primary me-2"></i>Qabristan Directory</h4>
                 <p class="text-muted small mb-0">Mukhtalif shehron ke qabristano ke rabta number aur tafseelat</p>
             </div>
             <a href="{{ route('graveyards.index') }}" class="btn btn-outline-secondary btn-sm">
@@ -313,19 +313,19 @@
         <div class="row g-3">
             @foreach($graveyards as $graveyard)
                 <div class="col-md-6 col-lg-4">
-                    <div class="card card-custom h-100 p-3">
+                    <div class="card card-custom h-100 p-4">
                         <div class="d-flex justify-content-between align-items-start mb-2">
-                            <h6 class="fw-bold mb-0 text-success">{{ $graveyard->name }}</h6>
+                            <h6 class="fw-bold mb-0 text-dark">{{ $graveyard->name }}</h6>
                             <span class="badge bg-secondary-subtle text-dark">{{ $graveyard->city->name ?? '' }}</span>
                         </div>
                         <div class="small text-muted mb-2">
-                            <i class="bi bi-geo-alt me-1"></i> {{ $graveyard->address }}
+                            <i class="bi bi-geo-alt me-1 text-danger"></i> {{ $graveyard->address }}
                         </div>
                         <div class="small mb-3 text-dark">
                             <i class="bi bi-telephone me-1 text-primary"></i> <strong>Rabta:</strong> {{ $graveyard->phone ?? 'N/A' }}
                         </div>
                         <div class="mt-auto pt-2 border-top">
-                            <a href="{{ route('graveyards.show', $graveyard->id) }}" class="small text-decoration-none fw-bold text-success">
+                            <a href="{{ route('graveyards.show', $graveyard->id) }}" class="small text-decoration-none fw-bold text-primary">
                                 Details & Gor-kan Info <i class="bi bi-chevron-right"></i>
                             </a>
                         </div>
@@ -337,4 +337,3 @@
 
 </div>
 @endsection
-

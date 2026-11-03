@@ -12,19 +12,20 @@
 
     <style>
         :root {
-            --admin-sidebar-bg: #0f231a;
-            --admin-sidebar-hover: #18382a;
-            --admin-sidebar-active: #1e4b38;
+            /* Executive Slate & Royal Blue Theme */
+            --admin-sidebar-bg: #0f172a;     /* Midnight Slate */
+            --admin-sidebar-hover: #1e293b;  /* Dark Slate */
+            --admin-sidebar-active: #1d4ed8; /* Vibrant Royal Indigo */
             --admin-sidebar-text: #94a3b8;
-            --admin-primary: #1a4d3e;
-            --admin-accent: #c29b38;
+            --admin-primary: #1e3a8a;
+            --admin-accent: #3b82f6;
             --admin-bg: #f8fafc;
         }
 
         body {
             font-family: 'Plus Jakarta Sans', sans-serif;
             background-color: var(--admin-bg);
-            color: #334155;
+            color: #1e293b;
             min-height: 100vh;
             overflow-x: hidden;
         }
@@ -38,6 +39,7 @@
             flex-direction: column;
             transition: all 0.3s ease;
             z-index: 1040;
+            border-right: 1px solid rgba(255,255,255,0.05);
         }
 
         .sidebar-brand {
@@ -64,7 +66,7 @@
             flex-grow: 1;
             display: flex;
             flex-direction: column;
-            gap: 4px;
+            gap: 5px;
         }
 
         .sidebar-nav .nav-link {
@@ -94,21 +96,20 @@
         .sidebar-nav .nav-link.active {
             color: #ffffff !important;
             background-color: var(--admin-sidebar-active);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-            border-left: 4px solid var(--admin-accent);
+            box-shadow: 0 4px 14px rgba(29, 78, 216, 0.35);
         }
 
         .sidebar-user {
             padding: 16px 20px;
             border-top: 1px solid rgba(255,255,255,0.08);
-            background-color: rgba(0,0,0,0.2);
+            background-color: rgba(0,0,0,0.25);
         }
 
         /* Top Navbar */
         .admin-topbar {
             background-color: #ffffff;
             border-bottom: 1px solid #e2e8f0;
-            padding: 12px 25px;
+            padding: 14px 25px;
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -128,7 +129,22 @@
             background: #ffffff;
             border: 1px solid #e2e8f0;
             border-radius: 14px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+            box-shadow: 0 4px 12px rgba(15, 23, 42, 0.04);
+        }
+
+        .btn-primary-custom {
+            background-color: #1e3a8a;
+            color: white;
+            font-weight: 600;
+            border: none;
+            padding: 8px 18px;
+            border-radius: 8px;
+            transition: all 0.2s;
+        }
+
+        .btn-primary-custom:hover {
+            background-color: #172554;
+            color: white;
         }
 
         @media (max-width: 991.98px) {
@@ -151,11 +167,11 @@
         <!-- Sidebar -->
         <aside id="adminSidebar">
             <a href="{{ route('admin.dashboard') }}" class="sidebar-brand">
-                <div class="bg-success text-white rounded-3 p-2 d-inline-flex" style="background-color: var(--admin-primary) !important;">
+                <div class="rounded-3 p-2 d-inline-flex text-white shadow-sm" style="background: linear-gradient(135deg, #2563eb, #1d4ed8) !important;">
                     <i class="bi bi-shield-heart-fill fs-5"></i>
                 </div>
                 <div>
-                    <h5>SAHAARA <span class="badge bg-warning text-dark small" style="font-size: 0.65rem;">ADMIN</span></h5>
+                    <h5>SAHAARA <span class="badge bg-primary text-white small" style="font-size: 0.65rem;">CONTROL</span></h5>
                     <div class="text-white-50" style="font-size: 0.75rem;">Operations Portal</div>
                 </div>
             </a>
@@ -167,7 +183,7 @@
             <ul class="sidebar-nav">
                 <li class="nav-item">
                     <a href="{{ route('admin.dashboard') }}" class="nav-link {{ request()->routeIs('admin.dashboard') ? 'active' : '' }}">
-                        <i class="bi bi-speedometer2"></i>
+                        <i class="bi bi-speedometer2 text-info"></i>
                         <span>Dashboard</span>
                     </a>
                 </li>
@@ -191,7 +207,7 @@
 
                 <li class="nav-item">
                     <a href="{{ route('admin.graveyards') }}" class="nav-link {{ request()->routeIs('admin.graveyards*') ? 'active' : '' }}">
-                        <i class="bi bi-pin-map-fill text-success"></i>
+                        <i class="bi bi-pin-map-fill text-warning"></i>
                         <span>Qabristan Directory</span>
                     </a>
                 </li>
@@ -222,7 +238,7 @@
             <div class="sidebar-user text-white">
                 <div class="d-flex align-items-center justify-content-between">
                     <div class="d-flex align-items-center gap-2">
-                        <div class="rounded-circle bg-success text-white d-flex align-items-center justify-content-center fw-bold" style="width: 38px; height: 38px;">
+                        <div class="rounded-circle bg-primary text-white d-flex align-items-center justify-content-center fw-bold" style="width: 38px; height: 38px;">
                             {{ substr(Auth::user()->name ?? 'A', 0, 1) }}
                         </div>
                         <div>
@@ -253,13 +269,13 @@
                 </div>
 
                 <div class="d-flex align-items-center gap-3">
-                    <a href="{{ route('home') }}" class="btn btn-outline-success btn-sm" target="_blank">
+                    <a href="{{ route('home') }}" class="btn btn-outline-primary btn-sm" target="_blank">
                         <i class="bi bi-globe me-1"></i> Public Website <i class="bi bi-box-arrow-up-right small ms-1"></i>
                     </a>
 
                     <div class="dropdown">
                         <button class="btn btn-light btn-sm border dropdown-toggle d-flex align-items-center gap-2" type="button" data-bs-toggle="dropdown">
-                            <i class="bi bi-person-circle text-success"></i>
+                            <i class="bi bi-person-circle text-primary"></i>
                             <span>{{ Auth::user()->name ?? 'Admin' }}</span>
                         </button>
                         <ul class="dropdown-menu dropdown-menu-end shadow-sm border-0">
@@ -282,7 +298,7 @@
             <main class="p-3 p-lg-4">
                 @if(session('success'))
                     <div class="alert alert-success alert-dismissible fade show d-flex align-items-center shadow-sm" role="alert">
-                        <i class="bi bi-check-circle-fill fs-5 me-2"></i>
+                        <i class="bi bi-check-circle-fill fs-5 me-2 text-success"></i>
                         <div>{{ session('success') }}</div>
                         <button type="button" class="btn-close ms-auto" data-bs-dismiss="alert"></button>
                     </div>
@@ -290,7 +306,7 @@
 
                 @if(session('error'))
                     <div class="alert alert-danger alert-dismissible fade show d-flex align-items-center shadow-sm" role="alert">
-                        <i class="bi bi-exclamation-triangle-fill fs-5 me-2"></i>
+                        <i class="bi bi-exclamation-triangle-fill fs-5 me-2 text-danger"></i>
                         <div>{{ session('error') }}</div>
                         <button type="button" class="btn-close ms-auto" data-bs-dismiss="alert"></button>
                     </div>

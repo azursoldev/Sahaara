@@ -6,7 +6,7 @@
 <div class="container py-3">
 
     <!-- Header Banner -->
-    <div class="card card-custom border-0 p-4 mb-4 text-white" style="background: linear-gradient(135deg, #1b382b, #2f5a48);">
+    <div class="card card-custom border-0 p-4 p-md-5 mb-4 text-white" style="background: linear-gradient(135deg, #0f172a, #1e293b, #334155); box-shadow: 0 10px 30px rgba(15, 23, 42, 0.2);">
         <div class="row align-items-center g-3">
             <div class="col-md-8">
                 <span class="badge bg-warning text-dark mb-2 fw-bold">Tadfeen Sahoolat</span>
@@ -16,7 +16,7 @@
                 </p>
             </div>
             <div class="col-md-4 text-md-end">
-                <a href="{{ route('requests.create') }}?service=qabar" class="btn btn-warning btn-lg fw-bold text-dark">
+                <a href="{{ route('requests.create') }}?service=qabar" class="btn btn-warning btn-lg fw-bold text-dark shadow-sm">
                     <i class="bi bi-layers-fill me-1"></i> Qabar / Gor-kan Book Karein
                 </a>
             </div>
@@ -58,7 +58,7 @@
     <div class="row g-4 mb-4">
         @forelse($graveyards as $graveyard)
             <div class="col-md-6 col-lg-4">
-                <div class="card card-custom h-100 p-4">
+                <div class="card card-custom h-100 p-4 border-top border-4 border-secondary">
                     <div class="d-flex justify-content-between align-items-start mb-2">
                         <span class="badge bg-light text-dark border">{{ $graveyard->city->name ?? 'Pakistan' }}</span>
                         @if($graveyard->has_space)
@@ -68,18 +68,18 @@
                         @endif
                     </div>
 
-                    <h5 class="fw-bold text-success mb-2">{{ $graveyard->name }}</h5>
+                    <h5 class="fw-bold text-dark mb-2">{{ $graveyard->name }}</h5>
 
                     <p class="small text-muted mb-3">
                         <i class="bi bi-geo-alt-fill text-danger me-1"></i> {{ $graveyard->address }}
                     </p>
 
-                    <div class="p-3 bg-light rounded-3 mb-3 small">
+                    <div class="p-3 bg-light rounded-3 mb-3 small border">
                         <div class="mb-1">
                             <i class="bi bi-telephone-fill text-primary me-2"></i>
                             <strong>Rabta:</strong> 
                             @if($graveyard->phone)
-                                <a href="tel:{{ $graveyard->phone }}" class="text-decoration-none fw-bold">{{ $graveyard->phone }}</a>
+                                <a href="tel:{{ $graveyard->phone }}" class="text-decoration-none fw-bold text-dark">{{ $graveyard->phone }}</a>
                             @else
                                 <span class="text-muted">Direct Visit / Gate Office</span>
                             @endif
@@ -92,7 +92,7 @@
                     </div>
 
                     <div class="mt-auto pt-3 border-top d-flex justify-content-between align-items-center">
-                        <a href="{{ route('graveyards.show', $graveyard->id) }}" class="btn btn-sm btn-outline-success">
+                        <a href="{{ route('graveyards.show', $graveyard->id) }}" class="btn btn-sm btn-outline-secondary">
                             Tafseelat <i class="bi bi-chevron-right"></i>
                         </a>
                         <a href="{{ route('requests.create') }}?service=qabar" class="btn btn-sm btn-primary-custom">
@@ -117,4 +117,3 @@
 
 </div>
 @endsection
-

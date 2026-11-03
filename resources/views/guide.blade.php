@@ -8,7 +8,7 @@
         <div class="col-lg-9">
 
             <!-- Guide Header -->
-            <div class="card card-custom border-0 p-4 p-md-5 mb-4 text-white" style="background: linear-gradient(135deg, #122c22, #1d4b3b);">
+            <div class="card card-custom border-0 p-4 p-md-5 mb-4 text-white" style="background: linear-gradient(135deg, #0b1528, #172a45, #1e3a8a); box-shadow: 0 10px 30px rgba(15, 23, 42, 0.2);">
                 <div class="text-center">
                     <div class="font-arabic fs-3 text-warning mb-2">إِنَّا لِلَّٰهِ وَإِنَّا إِلَيْهِ رَاجِعُونَ</div>
                     <h2 class="fw-bold mb-2">Inteqal Ke Baad Pehle Kya Karein?</h2>
@@ -52,7 +52,7 @@
 
                 <!-- Step 3 -->
                 <div class="d-flex gap-4 mb-4 pb-4 border-bottom">
-                    <div class="rounded-circle bg-success bg-opacity-10 text-success p-3 fs-3 d-flex align-items-center justify-content-center flex-shrink-0" style="width: 55px; height: 55px;">
+                    <div class="rounded-circle bg-indigo bg-opacity-10 text-indigo p-3 fs-3 d-flex align-items-center justify-content-center flex-shrink-0" style="width: 55px; height: 55px; background-color: #ede9fe; color: #6d28d9;">
                         <strong>3</strong>
                     </div>
                     <div>
@@ -63,7 +63,7 @@
                             Sunnat ke mutabiq ghusl dene ke liye ba-shara tajurbakar Ghassal (Mard ya Aurat) ka intezam karein. Kafoor, gulab arq, sabun aur bardana sath tayyar rakhein.
                         </p>
                         <div class="d-flex gap-2">
-                            <a href="{{ route('requests.create') }}?service=ghusl" class="btn btn-sm btn-outline-success">
+                            <a href="{{ route('requests.create') }}?service=ghusl" class="btn btn-sm btn-outline-primary">
                                 <i class="bi bi-droplet-half me-1"></i> Ghassal Book Karein
                             </a>
                             <a href="{{ route('requests.create') }}?service=kafan" class="btn btn-sm btn-outline-secondary">
@@ -112,7 +112,7 @@
                 <h5 class="fw-bold mb-1">Koi Bhi Sawal Ya Fauri Zaroorat?</h5>
                 <p class="text-muted small mb-3">Sahaara team 24 ghante aapki khidmat aur rehnumai ke liye tayyar hai:</p>
                 <div>
-                    <a href="tel:03007242272" class="btn btn-success btn-lg px-4 fw-bold">
+                    <a href="tel:03007242272" class="btn btn-primary btn-lg px-4 fw-bold" style="background-color: var(--primary-color);">
                         <i class="bi bi-telephone-fill me-2"></i> 0300-SAHAARA (7242272)
                     </a>
                 </div>
@@ -122,4 +122,3 @@
     </div>
 </div>
 @endsection
-

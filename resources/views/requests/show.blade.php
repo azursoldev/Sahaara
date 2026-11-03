@@ -12,7 +12,7 @@
                 <div class="d-flex flex-wrap justify-content-between align-items-center gap-3">
                     <div>
                         <span class="badge bg-secondary-subtle text-dark px-3 py-1 mb-2">Tracking ID</span>
-                        <h3 class="fw-bold text-success mb-0 d-flex align-items-center gap-2">
+                        <h3 class="fw-bold text-primary mb-0 d-flex align-items-center gap-2">
                             <span>{{ $serviceRequest->tracking_code }}</span>
                             <button class="btn btn-sm btn-outline-secondary rounded-pill py-0 px-2" onclick="navigator.clipboard.writeText('{{ $serviceRequest->tracking_code }}'); alert('Tracking code copied!');" title="Copy code">
                                 <i class="bi bi-clipboard"></i>
@@ -35,7 +35,7 @@
                         </span>
                         @if($serviceRequest->is_mustahiq)
                             <div class="mt-2">
-                                <span class="badge bg-success-subtle text-success border border-success">
+                                <span class="badge bg-primary-subtle text-primary border border-primary">
                                     <i class="bi bi-heart-fill me-1"></i> Mustahiq Imdaad (Free)
                                 </span>
                             </div>
@@ -57,24 +57,24 @@
                         @endphp
 
                         <div class="col-3">
-                            <div class="rounded-circle mx-auto mb-2 d-flex align-items-center justify-content-center {{ $stepIndex >= 1 ? 'bg-success text-white' : 'bg-light text-muted border' }}" style="width: 40px; height: 40px;">
+                            <div class="rounded-circle mx-auto mb-2 d-flex align-items-center justify-content-center {{ $stepIndex >= 1 ? 'bg-primary text-white' : 'bg-light text-muted border' }}" style="width: 40px; height: 40px;">
                                 <i class="bi bi-check-lg"></i>
                             </div>
-                            <div class="small fw-bold {{ $stepIndex >= 1 ? 'text-success' : 'text-muted' }}">1. Request Mosool</div>
+                            <div class="small fw-bold {{ $stepIndex >= 1 ? 'text-primary' : 'text-muted' }}">1. Request Mosool</div>
                         </div>
 
                         <div class="col-3">
-                            <div class="rounded-circle mx-auto mb-2 d-flex align-items-center justify-content-center {{ $stepIndex >= 2 ? 'bg-success text-white' : 'bg-light text-muted border' }}" style="width: 40px; height: 40px;">
+                            <div class="rounded-circle mx-auto mb-2 d-flex align-items-center justify-content-center {{ $stepIndex >= 2 ? 'bg-primary text-white' : 'bg-light text-muted border' }}" style="width: 40px; height: 40px;">
                                 <i class="bi bi-person-check-fill"></i>
                             </div>
-                            <div class="small fw-bold {{ $stepIndex >= 2 ? 'text-success' : 'text-muted' }}">2. Team Assigned</div>
+                            <div class="small fw-bold {{ $stepIndex >= 2 ? 'text-primary' : 'text-muted' }}">2. Team Assigned</div>
                         </div>
 
                         <div class="col-3">
-                            <div class="rounded-circle mx-auto mb-2 d-flex align-items-center justify-content-center {{ $stepIndex >= 3 ? 'bg-success text-white' : 'bg-light text-muted border' }}" style="width: 40px; height: 40px;">
+                            <div class="rounded-circle mx-auto mb-2 d-flex align-items-center justify-content-center {{ $stepIndex >= 3 ? 'bg-primary text-white' : 'bg-light text-muted border' }}" style="width: 40px; height: 40px;">
                                 <i class="bi bi-truck"></i>
                             </div>
-                            <div class="small fw-bold {{ $stepIndex >= 3 ? 'text-success' : 'text-muted' }}">3. On The Way</div>
+                            <div class="small fw-bold {{ $stepIndex >= 3 ? 'text-primary' : 'text-muted' }}">3. On The Way</div>
                         </div>
 
                         <div class="col-3">
@@ -91,21 +91,21 @@
             <div class="row g-4 mb-4">
                 <div class="col-md-6">
                     <div class="card card-custom h-100 p-4">
-                        <h6 class="fw-bold text-success border-bottom pb-2 mb-3">
+                        <h6 class="fw-bold text-primary border-bottom pb-2 mb-3">
                             <i class="bi bi-box2-heart me-1"></i> Matlooba Khidmaat (Services Needed)
                         </h6>
                         <ul class="list-group list-group-flush mb-3">
                             @if($serviceRequest->services_needed)
                                 @foreach($serviceRequest->services_needed as $srv)
                                     <li class="list-group-item px-0 d-flex align-items-center gap-2">
-                                        <i class="bi bi-check-circle-fill text-success"></i>
+                                        <i class="bi bi-check-circle-fill text-primary"></i>
                                         <span class="text-capitalize fw-bold">{{ str_replace('_', ' ', $srv) }}</span>
                                     </li>
                                 @endforeach
                             @endif
                         </ul>
 
-                        <h6 class="fw-bold text-success border-bottom pb-2 mb-2">
+                        <h6 class="fw-bold text-primary border-bottom pb-2 mb-2">
                             <i class="bi bi-person me-1"></i> Marhoom Ki Maloomat
                         </h6>
                         <div class="small mb-1"><strong>Naam:</strong> {{ $serviceRequest->deceased_name ?? 'N/A' }}</div>
@@ -116,11 +116,11 @@
 
                 <div class="col-md-6">
                     <div class="card card-custom h-100 p-4">
-                        <h6 class="fw-bold text-success border-bottom pb-2 mb-3">
+                        <h6 class="fw-bold text-primary border-bottom pb-2 mb-3">
                             <i class="bi bi-telephone-inbound me-1"></i> Rabta & Maqam (Contact & Address)
                         </h6>
                         <div class="small mb-2"><strong>Rabta Karne Wale:</strong> {{ $serviceRequest->contact_name }} ({{ $serviceRequest->contact_relation ?? 'Family' }})</div>
-                        <div class="small mb-3"><strong>Phone:</strong> <a href="tel:{{ $serviceRequest->contact_phone }}" class="text-decoration-none fw-bold text-success">{{ $serviceRequest->contact_phone }}</a></div>
+                        <div class="small mb-3"><strong>Phone:</strong> <a href="tel:{{ $serviceRequest->contact_phone }}" class="text-decoration-none fw-bold text-primary">{{ $serviceRequest->contact_phone }}</a></div>
 
                         <div class="p-3 bg-light rounded-3 mb-2 small">
                             <div class="fw-bold text-secondary mb-1"><i class="bi bi-geo-alt-fill text-danger me-1"></i> Pickup Pata:</div>
@@ -152,7 +152,7 @@
                 <h5 class="fw-bold mb-2">Kisi Madad Ki Zaroorat Hai?</h5>
                 <p class="text-muted small mb-3">Agar gaari ya ghassal abhi tak nahi pohnche ya koi sawal hai, foran helpline par call karein:</p>
                 <div>
-                    <a href="tel:03007242272" class="btn btn-success px-4 fw-bold">
+                    <a href="tel:03007242272" class="btn btn-primary px-4 fw-bold" style="background-color: var(--primary-color);">
                         <i class="bi bi-telephone-fill me-2"></i> Call Helpline: 0300-SAHAARA
                     </a>
                 </div>
@@ -162,4 +162,3 @@
     </div>
 </div>
 @endsection
-

@@ -14,6 +14,16 @@ foreach ($dirs as $dir) {
     }
 }
 
+// Ensure SQLite database exists in /tmp
+$tmpDb = '/tmp/database.sqlite';
+$sourceDb = __DIR__ . '/../database/database.sqlite';
+if (!file_exists($tmpDb) && file_exists($sourceDb)) {
+    @copy($sourceDb, $tmpDb);
+} elseif (!file_exists($tmpDb)) {
+    @touch($tmpDb);
+}
+
 // Forward execution to Laravel's public entrypoint
 require __DIR__ . '/../public/index.php';
+
 

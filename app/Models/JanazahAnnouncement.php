@@ -31,3 +31,4 @@ class JanazahAnnouncement extends Model
         return $this->belongsTo(City::class);
     }
 }
+

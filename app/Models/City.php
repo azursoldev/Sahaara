@@ -29,3 +29,4 @@ class City extends Model
         return $this->hasMany(JanazahAnnouncement::class);
     }
 }
+

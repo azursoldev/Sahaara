@@ -34,3 +34,4 @@ class ServiceRequest extends Model
         return $this->belongsTo(City::class);
     }
 }
+

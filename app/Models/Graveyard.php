@@ -24,3 +24,4 @@ class Graveyard extends Model
         return $this->belongsTo(City::class);
     }
 }
+

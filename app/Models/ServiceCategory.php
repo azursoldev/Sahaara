@@ -14,3 +14,4 @@ class ServiceCategory extends Model
         return $this->hasMany(Service::class, 'category_id');
     }
 }
+

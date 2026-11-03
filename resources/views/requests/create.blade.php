@@ -8,11 +8,11 @@
         <div class="col-lg-9">
 
             @php
-                // Handle preselection cleanly
+                // Handle preselection cleanly (single or comma-separated)
                 $selectedServices = old('services_needed');
                 if ($selectedServices === null) {
                     if (!empty($preselectedService)) {
-                        $selectedServices = [$preselectedService];
+                        $selectedServices = explode(',', $preselectedService);
                     } else {
                         $selectedServices = ['ambulance']; // Default if general SOS
                     }

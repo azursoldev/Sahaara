@@ -150,9 +150,23 @@
                                 @endif
                             </td>
                             <td>
-                                <a href="{{ route('admin.requests') }}?search={{ $req->tracking_code }}" class="btn btn-sm btn-outline-primary">
-                                    Manage
-                                </a>
+                                @php
+                                    $dashDispatchMsg = "*SAHAARA EMERGENCY DISPATCH*\n"
+                                        . "Tracking ID: #" . $req->tracking_code . "\n"
+                                        . "Marhoom: " . ($req->deceased_name ?? 'N/A') . " (" . ucfirst($req->deceased_gender) . ")\n"
+                                        . "Services: " . implode(', ', $req->services_needed ?? []) . "\n"
+                                        . "Contact: " . $req->contact_name . " (" . $req->contact_phone . ")\n"
+                                        . "Pickup: " . $req->pickup_address . "\n"
+                                        . ($req->destination_address ? "Destination: " . $req->destination_address . "\n" : "");
+                                @endphp
+                                <div class="d-flex align-items-center gap-1">
+                                    <a href="https://api.whatsapp.com/send?text={{ urlencode($dashDispatchMsg) }}" target="_blank" class="btn btn-sm btn-outline-success" title="Forward to Driver on WhatsApp">
+                                        <i class="bi bi-whatsapp"></i>
+                                    </a>
+                                    <a href="{{ route('admin.requests') }}?search={{ $req->tracking_code }}" class="btn btn-sm btn-outline-primary">
+                                        Manage
+                                    </a>
+                                </div>
                             </td>
                         </tr>
                     @empty

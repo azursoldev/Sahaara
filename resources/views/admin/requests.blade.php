@@ -61,11 +61,39 @@
                         <th>Services Needed</th>
                         <th>Status</th>
                         <th>Welfare</th>
-                        <th>Actions</th>
+                        <th>Quick Dispatch & Action</th>
                     </tr>
                 </thead>
                 <tbody>
                     @forelse($requests as $req)
+                        @php
+                            // Clean phone for whatsapp link (e.g. 03001234567 -> 923001234567)
+                            $cleanPhone = preg_replace('/[^0-9]/', '', $req->contact_phone);
+                            if (str_starts_with($cleanPhone, '03')) {
+                                $cleanPhone = '92' . substr($cleanPhone, 1);
+                            }
+
+                            // Preformatted family message
+                            $familyMsg = "Assalam-o-Alaikum " . $req->contact_name . " sahab,\n\n"
+                                . "Sahaara Emergency Helpline ki janib se aapki request #" . $req->tracking_code . " par update:\n"
+                                . "Current Status: " . strtoupper($req->status) . "\n"
+                                . ($req->admin_remarks ? "Remarks: " . $req->admin_remarks . "\n" : "")
+                                . "\nLive status yahan track karein: " . route('requests.show', $req->tracking_code) . "\n\n"
+                                . "Hum har marhalay par aapke sath hain.";
+
+                            // Preformatted dispatch message for driver/ghassal
+                            $dispatchMsg = "*SAHAARA EMERGENCY DISPATCH*\n"
+                                . "Tracking ID: #" . $req->tracking_code . "\n"
+                                . "Shehar: " . ($req->city->name ?? 'General') . "\n"
+                                . "Marhoom: " . ($req->deceased_name ?? 'N/A') . " (" . ucfirst($req->deceased_gender) . ")\n"
+                                . "Services: " . implode(', ', $req->services_needed ?? []) . "\n"
+                                . "Contact: " . $req->contact_name . " (" . $req->contact_phone . ")\n"
+                                . "Pickup Address: " . $req->pickup_address . "\n"
+                                . ($req->destination_address ? "Destination: " . $req->destination_address . "\n" : "")
+                                . ($req->notes ? "Notes: " . $req->notes . "\n" : "")
+                                . "\nFauri pohnchein aur confirm karein.";
+                        @endphp
+
                         <tr>
                             <td>
                                 <a href="{{ route('requests.show', $req->tracking_code) }}" class="fw-bold text-success text-decoration-none" target="_blank">
@@ -107,9 +135,24 @@
                                 @endif
                             </td>
                             <td>
-                                <button type="button" class="btn btn-sm btn-outline-primary" data-bs-toggle="modal" data-bs-target="#editModal{{ $req->id }}">
-                                    <i class="bi bi-pencil-square"></i> Update / Dispatch
-                                </button>
+                                <div class="d-flex align-items-center gap-1">
+                                    <!-- 1-Click WhatsApp Family -->
+                                    <a href="https://api.whatsapp.com/send?phone={{ $cleanPhone }}&text={{ urlencode($familyMsg) }}" 
+                                       target="_blank" class="btn btn-sm btn-outline-success" title="Family ko WhatsApp Update Bhejein">
+                                        <i class="bi bi-whatsapp"></i> Family
+                                    </a>
+
+                                    <!-- 1-Click WhatsApp Dispatch Details -->
+                                    <a href="https://api.whatsapp.com/send?text={{ urlencode($dispatchMsg) }}" 
+                                       target="_blank" class="btn btn-sm btn-success text-white" title="Driver / Ghassal ko Details Forward Karein">
+                                        <i class="bi bi-send-fill"></i> Dispatch
+                                    </a>
+
+                                    <!-- Manage Modal Button -->
+                                    <button type="button" class="btn btn-sm btn-outline-primary" data-bs-toggle="modal" data-bs-target="#editModal{{ $req->id }}" title="Status Update">
+                                        <i class="bi bi-pencil-square"></i>
+                                    </button>
+                                </div>
 
                                 <!-- Update Modal -->
                                 <div class="modal fade" id="editModal{{ $req->id }}" tabindex="-1">
@@ -122,7 +165,7 @@
                                                     <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                                                 </div>
                                                 <div class="modal-body">
-                                                    <div class="p-3 bg-light rounded-3 mb-3 small">
+                                                    <div class="p-3 bg-light rounded-3 mb-3 small border">
                                                         <div><strong>Pickup Address:</strong> {{ $req->pickup_address }}</div>
                                                         @if($req->destination_address)
                                                             <div><strong>Destination:</strong> {{ $req->destination_address }}</div>
@@ -130,6 +173,17 @@
                                                         @if($req->notes)
                                                             <div class="text-danger mt-1"><strong>User Notes:</strong> {{ $req->notes }}</div>
                                                         @endif
+                                                    </div>
+
+                                                    <!-- Quick WhatsApp dispatch from inside modal as well -->
+                                                    <div class="mb-3 p-2 bg-success bg-opacity-10 border border-success rounded-3 d-flex justify-content-between align-items-center">
+                                                        <div class="small fw-bold text-success">
+                                                            <i class="bi bi-whatsapp me-1"></i> WhatsApp Instant Dispatch:
+                                                        </div>
+                                                        <a href="https://api.whatsapp.com/send?text={{ urlencode($dispatchMsg) }}" 
+                                                           target="_blank" class="btn btn-sm btn-success text-white py-1 px-3 fw-bold">
+                                                            Forward to Driver <i class="bi bi-box-arrow-up-right small ms-1"></i>
+                                                        </a>
                                                     </div>
 
                                                     <div class="mb-3">
@@ -145,8 +199,8 @@
 
                                                     <div class="mb-3">
                                                         <label class="form-label fw-bold">Admin Remarks / Driver & Ghassal Info</label>
-                                                        <textarea name="admin_remarks" rows="3" class="form-control" placeholder="e.g. Driver Aslam (Ambulance # 442, Phone: 0300-XXXXXXX) dispatched.">{{ $req->admin_remarks }}</textarea>
-                                                        <div class="form-text small text-muted">Yeh note user ke tracking page par nazar aayega.</div>
+                                                        <textarea name="admin_remarks" rows="3" class="form-control" placeholder="e.g. Driver Aslam (Ambulance # 442, Phone: 0300-XXXXXXX) dispatched. Reaching in 20 mins.">{{ $req->admin_remarks }}</textarea>
+                                                        <div class="form-text small text-muted">Yeh note user ke live tracking page par nazar aayega.</div>
                                                     </div>
                                                 </div>
                                                 <div class="modal-footer">
@@ -174,4 +228,3 @@
     </div>
 </div>
 @endsection
-

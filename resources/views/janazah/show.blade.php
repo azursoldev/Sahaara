@@ -50,9 +50,14 @@
                     <i class="bi bi-arrow-left me-1"></i> Tamam Ailaanat
                 </a>
 
-                <div class="d-flex gap-2">
+                <div class="d-flex flex-wrap gap-2">
+                    <!-- Download Card as Image (PNG) Button -->
+                    <button type="button" id="btnDownloadImage" class="btn btn-primary btn-sm fw-bold shadow-sm" style="background-color: #1e3a8a; border: none;">
+                        <i class="bi bi-download me-1"></i> Card Image Download Karein (PNG)
+                    </button>
+
                     <button onclick="window.print()" class="btn btn-outline-dark btn-sm">
-                        <i class="bi bi-printer-fill me-1"></i> Print / Save PDF
+                        <i class="bi bi-printer-fill me-1"></i> Print / PDF
                     </button>
 
                     @php
@@ -68,13 +73,13 @@
                     @endphp
 
                     <a href="https://api.whatsapp.com/send?text={{ urlencode($shareText) }}" target="_blank" class="btn btn-success btn-sm fw-bold">
-                        <i class="bi bi-whatsapp me-1"></i> WhatsApp Par Share Karein
+                        <i class="bi bi-whatsapp me-1"></i> WhatsApp
                     </a>
                 </div>
             </div>
 
-            <!-- Islamic Janazah Card -->
-            <div class="janazah-card p-4 p-md-5 shadow-lg position-relative">
+            <!-- Islamic Janazah Card (Capture Target) -->
+            <div id="janazahCardToDownload" class="janazah-card p-4 p-md-5 shadow-lg position-relative bg-white">
                 <div class="ornament-corner top-left"></div>
                 <div class="ornament-corner top-right"></div>
                 <div class="ornament-corner bottom-left"></div>
@@ -209,3 +214,43 @@
     </div>
 </div>
 @endsection
+
+@push('scripts')
+<!-- html2canvas for Image Generation -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script>
+    document.getElementById('btnDownloadImage').addEventListener('click', function() {
+        const btn = this;
+        const originalText = btn.innerHTML;
+        btn.innerHTML = '<span class="spinner-border spinner-border-sm me-1"></span> Image Tayyar Ho Rahi Hai...';
+        btn.disabled = true;
+
+        const cardElement = document.getElementById('janazahCardToDownload');
+
+        html2canvas(cardElement, {
+            scale: 2, // High resolution for mobile screens
+            useCORS: true,
+            backgroundColor: '#ffffff'
+        }).then(function(canvas) {
+            // Create download link
+            const image = canvas.toDataURL('image/png');
+            const link = document.createElement('a');
+            const cleanName = '{{ Str::slug($announcement->deceased_name) }}' || 'janazah-card';
+            link.download = cleanName + '-card.png';
+            link.href = image;
+            link.click();
+
+            btn.innerHTML = '<i class="bi bi-check2-circle me-1"></i> Downloaded!';
+            setTimeout(() => {
+                btn.innerHTML = originalText;
+                btn.disabled = false;
+            }, 2500);
+        }).catch(function(err) {
+            console.error('Error creating card image:', err);
+            alert('Image generate karne mein masla hua. Aap screenshot le sakte hain ya PDF print kar sakte hain.');
+            btn.innerHTML = originalText;
+            btn.disabled = false;
+        });
+    });
+</script>
+@endpush

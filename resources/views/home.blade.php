@@ -223,6 +223,101 @@
         </div>
     </div>
 
+    <!-- Live Cost Estimator / Calculator Section -->
+    <div class="card card-custom border-0 shadow-sm p-4 p-md-5 mb-5" style="background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%); border: 1px solid #e2e8f0;">
+        <div class="row align-items-center g-4">
+            <div class="col-lg-5">
+                <span class="badge bg-primary-subtle text-primary mb-2 px-3 py-1 fw-bold">
+                    <i class="bi bi-calculator me-1"></i> Shaffaf Nizam (Transparency)
+                </span>
+                <h3 class="fw-bold text-dark mb-2">Kharche Ka Taqmeena (Cost Estimator)</h3>
+                <p class="text-muted small mb-4">
+                    Ghar walon ki sahoolat ke liye mukhtalif khidmaat ka majmooee andaza lagayein. Aap apni zaroorat ke mutabiq items tick ya uncheck kar sakte hain.
+                </p>
+
+                <!-- Mustahiq switch -->
+                <div class="p-3 rounded-3 border border-primary bg-primary bg-opacity-10 mb-3">
+                    <div class="form-check form-switch fs-6 mb-0">
+                        <input class="form-check-input" type="checkbox" role="switch" id="calcMustahiqSwitch">
+                        <label class="form-check-label fw-bold text-primary" for="calcMustahiqSwitch">
+                            Mustahiq Imdaad (Free Support)
+                        </label>
+                    </div>
+                    <div class="small text-muted mt-1" style="font-size: 0.8rem;">
+                        Kharcha ada na karne ki soorat mein Sadqah Fund ke tehat tamam khidmaat 100% muft hain.
+                    </div>
+                </div>
+
+                <div class="small text-muted">
+                    <i class="bi bi-info-circle me-1 text-primary"></i> Yeh taqmeena aam market aur welfare trusts ke miyari kharchon par mabni hai.
+                </div>
+            </div>
+
+            <div class="col-lg-7">
+                <div class="bg-white p-4 rounded-4 border shadow-sm">
+                    <h6 class="fw-bold text-dark border-bottom pb-2 mb-3">Matlooba Khidmaat Ka Intekhab Karein:</h6>
+
+                    <div class="d-flex flex-column gap-2 mb-3">
+                        <label class="d-flex align-items-center justify-content-between p-2 rounded-3 border bg-light cursor-pointer">
+                            <div class="form-check mb-0">
+                                <input class="form-check-input calc-item" type="checkbox" value="1500" data-service="ambulance" id="calc_amb" checked>
+                                <span class="form-check-label fw-bold text-dark small">🚑 Ambulance / Hearse Van</span>
+                            </div>
+                            <span class="badge bg-white text-dark border small fw-bold">Rs. 1,500</span>
+                        </label>
+
+                        <label class="d-flex align-items-center justify-content-between p-2 rounded-3 border bg-light cursor-pointer">
+                            <div class="form-check mb-0">
+                                <input class="form-check-input calc-item" type="checkbox" value="1000" data-service="ghusl" id="calc_ghusl" checked>
+                                <span class="form-check-label fw-bold text-dark small">💧 Ba-Shara Ghassal (Mard / Aurat)</span>
+                            </div>
+                            <span class="badge bg-white text-dark border small fw-bold">Rs. 1,000</span>
+                        </label>
+
+                        <label class="d-flex align-items-center justify-content-between p-2 rounded-3 border bg-light cursor-pointer">
+                            <div class="form-check mb-0">
+                                <input class="form-check-input calc-item" type="checkbox" value="2200" data-service="kafan" id="calc_kafan" checked>
+                                <span class="form-check-label fw-bold text-dark small">📦 Complete Kafan Saman Box</span>
+                            </div>
+                            <span class="badge bg-white text-dark border small fw-bold">Rs. 2,200</span>
+                        </label>
+
+                        <label class="d-flex align-items-center justify-content-between p-2 rounded-3 border bg-light cursor-pointer">
+                            <div class="form-check mb-0">
+                                <input class="form-check-input calc-item" type="checkbox" value="2000" data-service="qabar" id="calc_qabar">
+                                <span class="form-check-label fw-bold text-dark small">🪦 Qabar Khudaai (Gor-kan)</span>
+                            </div>
+                            <span class="badge bg-white text-dark border small fw-bold">Rs. 2,000</span>
+                        </label>
+
+                        <label class="d-flex align-items-center justify-content-between p-2 rounded-3 border bg-light cursor-pointer">
+                            <div class="form-check mb-0">
+                                <input class="form-check-input calc-item" type="checkbox" value="3000" data-service="qabar" id="calc_paat">
+                                <span class="form-check-label fw-bold text-dark small">🧱 Cement Paat (Slabs) & Eentein</span>
+                            </div>
+                            <span class="badge bg-white text-dark border small fw-bold">Rs. 3,000</span>
+                        </label>
+                    </div>
+
+                    <!-- Total & Booking Action -->
+                    <div class="p-3 rounded-3 bg-light border d-flex flex-wrap justify-content-between align-items-center gap-3">
+                        <div>
+                            <div class="text-muted small fw-bold text-uppercase">Takhmeena Total (Estimated Cost):</div>
+                            <h3 class="fw-bold mb-0 text-primary" id="calcTotalDisplay">Rs. 4,700</h3>
+                            <div class="small text-success fw-bold d-none" id="calcFreeBadge">
+                                <i class="bi bi-heart-fill"></i> 100% Free (Sadqah Fund Sponsored)
+                            </div>
+                        </div>
+
+                        <a href="{{ route('requests.create') }}?service=ambulance,ghusl,kafan" id="btnBookPackage" class="btn btn-primary-custom fw-bold px-4">
+                            <i class="bi bi-check2-circle me-1"></i> Yeh Package Book Karein <i class="bi bi-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Step-by-Step Practical Funeral Guide Banner -->
     <div class="card border-0 rounded-4 shadow-sm p-4 mb-5" style="background: #ffffff; border-left: 6px solid var(--primary-color) !important;">
         <div class="row align-items-center g-4">
@@ -337,3 +432,62 @@
 
 </div>
 @endsection
+
+@push('scripts')
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const checkboxes = document.querySelectorAll('.calc-item');
+        const mustahiqSwitch = document.getElementById('calcMustahiqSwitch');
+        const totalDisplay = document.getElementById('calcTotalDisplay');
+        const freeBadge = document.getElementById('calcFreeBadge');
+        const btnBook = document.getElementById('btnBookPackage');
+
+        function calculateCost() {
+            let total = 0;
+            const selectedServices = new Set();
+
+            checkboxes.forEach(cb => {
+                if (cb.checked) {
+                    total += parseFloat(cb.value) || 0;
+                    selectedServices.add(cb.getAttribute('data-service'));
+                }
+            });
+
+            const isMustahiq = mustahiqSwitch.checked;
+
+            if (isMustahiq) {
+                totalDisplay.innerText = "Rs. 0 (Free)";
+                totalDisplay.classList.remove('text-primary');
+                totalDisplay.classList.add('text-success');
+                freeBadge.classList.remove('d-none');
+            } else {
+                totalDisplay.innerText = "Rs. " + total.toLocaleString();
+                totalDisplay.classList.remove('text-success');
+                totalDisplay.classList.add('text-primary');
+                freeBadge.classList.add('d-none');
+            }
+
+            // Build dynamic booking URL
+            const servicesArray = Array.from(selectedServices);
+            let url = "{{ route('requests.create') }}";
+            const params = [];
+            if (servicesArray.length > 0) {
+                params.push("service=" + servicesArray.join(','));
+            }
+            if (isMustahiq) {
+                params.push("mustahiq=1");
+            }
+            if (params.length > 0) {
+                url += "?" + params.join('&');
+            }
+
+            btnBook.href = url;
+        }
+
+        checkboxes.forEach(cb => cb.addEventListener('change', calculateCost));
+        mustahiqSwitch.addEventListener('change', calculateCost);
+
+        calculateCost();
+    });
+</script>
+@endpush

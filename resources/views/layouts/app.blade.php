@@ -273,8 +273,6 @@
             </div>
             <div class="d-flex align-items-center gap-3">
                 <a href="{{ route('requests.track') }}"><i class="bi bi-geo-alt-fill me-1 text-warning"></i> Track Request</a>
-                <span class="text-secondary">|</span>
-                <a href="{{ route('admin.dashboard') }}"><i class="bi bi-shield-lock-fill me-1 text-info"></i> Admin Portal</a>
             </div>
         </div>
     </div>

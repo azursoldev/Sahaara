@@ -7,6 +7,18 @@
     <div class="row justify-content-center">
         <div class="col-lg-9">
 
+            @php
+                // Handle preselection cleanly
+                $selectedServices = old('services_needed');
+                if ($selectedServices === null) {
+                    if (!empty($preselectedService)) {
+                        $selectedServices = [$preselectedService];
+                    } else {
+                        $selectedServices = ['ambulance']; // Default if general SOS
+                    }
+                }
+            @endphp
+
             <!-- Header Banner -->
             <div class="text-white rounded-4 p-4 mb-4 shadow-sm position-relative overflow-hidden" 
                  style="background: linear-gradient(135deg, #b91c1c 0%, #991b1b 100%);">
@@ -36,7 +48,7 @@
                         <div class="col-md-6">
                             <div class="form-check p-3 border rounded-3 bg-light h-100">
                                 <input class="form-check-input ms-0 me-3" type="checkbox" name="services_needed[]" value="ambulance" id="srv_ambulance" 
-                                    {{ old('services_needed') ? (in_array('ambulance', old('services_needed')) ? 'checked' : '') : ($preselectedService == 'ambulance' ? 'checked' : 'checked') }}>
+                                    {{ in_array('ambulance', $selectedServices) ? 'checked' : '' }}>
                                 <label class="form-check-label fw-bold d-block" for="srv_ambulance">
                                     <i class="bi bi-truck-front-fill text-danger me-1"></i> Ambulance / Hearse Van
                                     <span class="d-block small text-muted fw-normal">Hospital se ghar ya ghar se janazah/qabristan muntaqili.</span>
@@ -47,7 +59,7 @@
                         <div class="col-md-6">
                             <div class="form-check p-3 border rounded-3 bg-light h-100">
                                 <input class="form-check-input ms-0 me-3" type="checkbox" name="services_needed[]" value="ghusl" id="srv_ghusl" 
-                                    {{ old('services_needed') ? (in_array('ghusl', old('services_needed')) ? 'checked' : '') : ($preselectedService == 'ghusl' ? 'checked' : 'checked') }}>
+                                    {{ in_array('ghusl', $selectedServices) ? 'checked' : '' }}>
                                 <label class="form-check-label fw-bold d-block" for="srv_ghusl">
                                     <i class="bi bi-droplet-half text-primary me-1"></i> Ghusl & Ghassal (Mard / Aurat)
                                     <span class="d-block small text-muted fw-normal">Ba-shara trained ghassal ghar par ya markazi ghusl-khana.</span>
@@ -58,7 +70,7 @@
                         <div class="col-md-6">
                             <div class="form-check p-3 border rounded-3 bg-light h-100">
                                 <input class="form-check-input ms-0 me-3" type="checkbox" name="services_needed[]" value="kafan" id="srv_kafan" 
-                                    {{ old('services_needed') ? (in_array('kafan', old('services_needed')) ? 'checked' : '') : ($preselectedService == 'kafan' ? 'checked' : 'checked') }}>
+                                    {{ in_array('kafan', $selectedServices) ? 'checked' : '' }}>
                                 <label class="form-check-label fw-bold d-block" for="srv_kafan">
                                     <i class="bi bi-box-seam-fill text-secondary me-1"></i> Kafan & Tajheez Saman Box
                                     <span class="d-block small text-muted fw-normal">Lattha kapra, Kafoor, Gulab Arq, Itar, Sabun, Bardana.</span>
@@ -69,7 +81,7 @@
                         <div class="col-md-6">
                             <div class="form-check p-3 border rounded-3 bg-light h-100">
                                 <input class="form-check-input ms-0 me-3" type="checkbox" name="services_needed[]" value="qabar" id="srv_qabar" 
-                                    {{ old('services_needed') ? (in_array('qabar', old('services_needed')) ? 'checked' : '') : ($preselectedService == 'qabar' ? 'checked' : '') }}>
+                                    {{ in_array('qabar', $selectedServices) ? 'checked' : '' }}>
                                 <label class="form-check-label fw-bold d-block" for="srv_qabar">
                                     <i class="bi bi-layers-fill text-dark me-1"></i> Qabar & Gor-kan Intezamat
                                     <span class="d-block small text-muted fw-normal">Qabar ki khudaai, cement ke paat (slabs), eentein, takhti.</span>

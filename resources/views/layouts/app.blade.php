@@ -392,10 +392,10 @@
                 <div class="col-lg-2 col-md-6">
                     <h6 class="text-white fw-bold mb-3">Aham Khidmaat</h6>
                     <ul class="list-unstyled small d-flex flex-column gap-2">
-                        <li><a href="{{ route('requests.create') }}"><i class="bi bi-chevron-right me-1 text-primary"></i> Fauri Ambulance</a></li>
-                        <li><a href="{{ route('services.category', 'ghusl') }}"><i class="bi bi-chevron-right me-1 text-primary"></i> Ba-Shara Ghassal</a></li>
-                        <li><a href="{{ route('services.category', 'kafan-package') }}"><i class="bi bi-chevron-right me-1 text-primary"></i> Kafan Saman Box</a></li>
-                        <li><a href="{{ route('services.category', 'qabar-intezamat') }}"><i class="bi bi-chevron-right me-1 text-primary"></i> Gor-kan & Qabar</a></li>
+                        <li><a href="{{ route('requests.create') }}?service=ambulance"><i class="bi bi-chevron-right me-1 text-primary"></i> Fauri Ambulance</a></li>
+                        <li><a href="{{ route('requests.create') }}?service=ghusl"><i class="bi bi-chevron-right me-1 text-primary"></i> Ba-Shara Ghassal</a></li>
+                        <li><a href="{{ route('requests.create') }}?service=kafan"><i class="bi bi-chevron-right me-1 text-primary"></i> Kafan Saman Box</a></li>
+                        <li><a href="{{ route('requests.create') }}?service=qabar"><i class="bi bi-chevron-right me-1 text-primary"></i> Gor-kan & Qabar</a></li>
                         <li><a href="{{ route('requests.create') }}?mustahiq=1"><i class="bi bi-chevron-right me-1 text-primary"></i> Mustahiq Imdaad (Free)</a></li>
                     </ul>
                 </div>

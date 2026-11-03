@@ -44,83 +44,157 @@
             font-family: 'Noto Nastaliq Urdu', serif;
         }
 
-        /* Top Bar */
+        /* Top Emergency Hotline Bar */
         .top-emergency-bar {
             background-color: #0b1329;
-            color: #cbd5e1;
-            font-size: 0.88rem;
-            padding: 8px 0;
+            color: #94a3b8;
+            font-size: 0.84rem;
+            padding: 7px 0;
             border-bottom: 1px solid rgba(255,255,255,0.06);
         }
 
         .top-emergency-bar a {
-            color: #ffffff;
+            color: #f1f5f9;
             text-decoration: none;
             font-weight: 600;
+            transition: color 0.2s;
         }
 
         .top-emergency-bar a:hover {
-            color: #f59e0b;
+            color: #fbbf24;
         }
 
-        /* Navbar */
+        /* Modern Sleek Navbar */
         .navbar-custom {
             background-color: #ffffff;
-            box-shadow: 0 2px 16px rgba(15, 23, 42, 0.06);
-            padding: 14px 0;
-            border-bottom: 1px solid #f1f5f9;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05), 0 1px 2px rgba(0, 0, 0, 0.03);
+            border-bottom: 1px solid #e2e8f0;
+            min-height: 72px;
+            padding: 0;
         }
 
-        .navbar-brand {
-            font-size: 1.5rem;
-            font-weight: 800;
-            color: var(--primary-color) !important;
+        .brand-icon {
+            width: 42px;
+            height: 42px;
+            border-radius: 10px;
+            background: linear-gradient(135deg, #1e3a8a, #0f172a);
+            color: #ffffff;
             display: flex;
             align-items: center;
-            gap: 12px;
+            justify-content: center;
+            font-size: 1.25rem;
+            box-shadow: 0 4px 10px rgba(30, 58, 138, 0.25);
+            flex-shrink: 0;
         }
 
-        .navbar-brand span.sub-brand {
-            font-size: 0.82rem;
+        .brand-title {
+            font-size: 1.35rem;
+            font-weight: 800;
+            color: #0f172a;
+            line-height: 1.1;
+            letter-spacing: -0.5px;
+        }
+
+        .brand-urdu {
+            font-size: 1rem;
+            font-weight: 700;
+            color: #2563eb;
+            margin-left: 4px;
+        }
+
+        .sub-brand {
+            font-size: 0.74rem;
             font-weight: 500;
             color: #64748b;
+            letter-spacing: 0.2px;
             display: block;
-            line-height: 1.1;
         }
 
-        .nav-link {
+        /* Clean Unified Nav Links */
+        .navbar-nav .nav-link {
+            font-size: 0.92rem;
             font-weight: 600;
-            color: #334155 !important;
-            padding: 8px 16px !important;
+            color: #475569 !important;
+            padding: 10px 16px !important;
             border-radius: 8px;
-            transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.2s ease-in-out;
+            position: relative;
         }
 
-        .nav-link:hover, .nav-link.active {
-            color: var(--primary-color) !important;
-            background-color: var(--primary-light);
+        .navbar-nav .nav-link i {
+            font-size: 1.05rem;
+            color: #64748b;
+            transition: color 0.2s;
         }
 
-        .btn-sos {
-            background: linear-gradient(135deg, #dc2626, #991b1b);
-            color: #ffffff !important;
+        .navbar-nav .nav-link:hover {
+            color: #1e3a8a !important;
+            background-color: #f8fafc;
+        }
+
+        .navbar-nav .nav-link:hover i {
+            color: #1e3a8a;
+        }
+
+        /* Active link indicator */
+        .navbar-nav .nav-link.active {
+            color: #1e3a8a !important;
+            background-color: transparent !important;
             font-weight: 700;
-            padding: 9px 22px;
+        }
+
+        .navbar-nav .nav-link.active i {
+            color: #2563eb;
+        }
+
+        .navbar-nav .nav-link.active::after {
+            content: "";
+            position: absolute;
+            bottom: 0px;
+            left: 14px;
+            right: 14px;
+            height: 3px;
+            background-color: #2563eb;
+            border-radius: 4px 4px 0 0;
+        }
+
+        @media (max-width: 991.98px) {
+            .navbar-nav {
+                padding: 12px 0;
+            }
+            .navbar-nav .nav-link.active::after {
+                display: none;
+            }
+            .navbar-nav .nav-link.active {
+                background-color: #eff6ff !important;
+            }
+        }
+
+        /* Clean Modern SOS Button */
+        .btn-sos-clean {
+            background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+            color: #ffffff !important;
+            font-size: 0.88rem;
+            font-weight: 700;
+            padding: 9px 20px;
             border-radius: 50px;
-            box-shadow: 0 4px 14px rgba(220, 38, 38, 0.35);
-            animation: pulse-red 2s infinite;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
+            transition: all 0.2s ease;
             border: none;
         }
 
-        .btn-sos:hover {
-            background: #7f1d1d;
+        .btn-sos-clean:hover {
+            background: #b91c1c;
             transform: translateY(-1px);
-        }
-
-        @keyframes pulse-red {
-            0% { box-shadow: 0 0 0 0 rgba(220, 38, 38, 0.4); }
-            70% { box-shadow: 0 0 0 10px rgba(220, 38, 38, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(220, 38, 38, 0); }
+            box-shadow: 0 6px 16px rgba(220, 38, 38, 0.4);
+            color: #ffffff !important;
         }
 
         .btn-primary-custom {
@@ -192,7 +266,7 @@
     <div class="top-emergency-bar">
         <div class="container d-flex flex-wrap justify-content-between align-items-center">
             <div class="d-flex align-items-center gap-3">
-                <span><i class="bi bi-clock-history text-warning me-1"></i> 24/7 Fauri Madad Helpline: <strong>0300-SAHAARA (7242272)</strong></span>
+                <span><i class="bi bi-clock-history text-warning me-1"></i> 24/7 Helpline: <strong>0300-SAHAARA (7242272)</strong></span>
                 <span class="d-none d-md-inline text-secondary">|</span>
                 <span class="d-none d-md-inline"><i class="bi bi-heart-pulse-fill text-danger me-1"></i> Edhi: <strong>115</strong></span>
                 <span class="d-none d-md-inline"><i class="bi bi-shield-check text-info me-1"></i> Chhipa: <strong>1020</strong></span>
@@ -208,53 +282,66 @@
     <!-- Main Navigation Bar -->
     <nav class="navbar navbar-expand-lg navbar-custom sticky-top">
         <div class="container">
-            <a class="navbar-brand" href="{{ route('home') }}">
-                <div class="text-white rounded-3 p-2 d-inline-flex align-items-center justify-content-center shadow-sm" style="width: 44px; height: 44px; background: linear-gradient(135deg, #1e3a8a, #0f172a);">
-                    <i class="bi bi-heart-fill"></i>
+            <!-- Brand -->
+            <a class="navbar-brand d-flex align-items-center gap-3 text-decoration-none py-2" href="{{ route('home') }}">
+                <div class="brand-icon">
+                    <i class="bi bi-heart-pulse-fill"></i>
                 </div>
                 <div>
-                    <div class="text-dark">SAHAARA <span class="font-urdu fs-6 text-primary fw-bold ms-1">سہارا</span></div>
+                    <div class="brand-title">
+                        SAHAARA <span class="font-urdu brand-urdu">سہارا</span>
+                    </div>
                     <span class="sub-brand">Funeral & Janazah Assistance</span>
                 </div>
             </a>
 
-            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar">
-                <span class="navbar-toggler-icon"></span>
+            <!-- Mobile Toggler -->
+            <button class="navbar-toggler border-0 shadow-none py-2 px-1" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar" aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="bi bi-list fs-2 text-dark"></i>
             </button>
 
+            <!-- Links -->
             <div class="collapse navbar-collapse" id="mainNavbar">
-                <ul class="navbar-nav ms-auto align-items-lg-center gap-1">
+                <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-1 my-3 my-lg-0">
                     <li class="nav-item">
                         <a class="nav-link {{ request()->routeIs('home') ? 'active' : '' }}" href="{{ route('home') }}">
-                            <i class="bi bi-house me-1"></i> Home
+                            <i class="bi bi-house-door"></i>
+                            <span>Home</span>
                         </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link {{ request()->routeIs('services.*') ? 'active' : '' }}" href="{{ route('services.index') }}">
-                            <i class="bi bi-grid me-1"></i> Khidmaat (Services)
+                            <i class="bi bi-grid"></i>
+                            <span>Khidmaat</span>
                         </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link {{ request()->routeIs('janazah.*') ? 'active' : '' }}" href="{{ route('janazah.index') }}">
-                            <i class="bi bi-megaphone me-1"></i> Janazah Board
+                            <i class="bi bi-megaphone"></i>
+                            <span>Janazah Board</span>
                         </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link {{ request()->routeIs('graveyards.*') ? 'active' : '' }}" href="{{ route('graveyards.index') }}">
-                            <i class="bi bi-pin-map me-1"></i> Qabristan Directory
+                            <i class="bi bi-pin-map"></i>
+                            <span>Qabristan</span>
                         </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link {{ request()->routeIs('guide') ? 'active' : '' }}" href="{{ route('guide') }}">
-                            <i class="bi bi-book me-1"></i> Rehnumai (Guide)
-                        </a>
-                    </li>
-                    <li class="nav-item ms-lg-2 my-2 my-lg-0">
-                        <a class="btn btn-sos d-flex align-items-center gap-2" href="{{ route('requests.create') }}">
-                            <i class="bi bi-bell-fill"></i> Fauri Madad (SOS)
+                            <i class="bi bi-journal-bookmark"></i>
+                            <span>Rehnumai</span>
                         </a>
                     </li>
                 </ul>
+
+                <!-- Right Action Button -->
+                <div class="d-flex align-items-center ms-lg-3 my-2 my-lg-0">
+                    <a class="btn-sos-clean" href="{{ route('requests.create') }}">
+                        <i class="bi bi-bell-fill"></i>
+                        <span>Fauri Madad (SOS)</span>
+                    </a>
+                </div>
             </div>
         </div>
     </nav>

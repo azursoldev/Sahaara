@@ -16,3 +16,4 @@ foreach ($dirs as $dir) {
 
 // Forward execution to Laravel's public entrypoint
 require __DIR__ . '/../public/index.php';
+

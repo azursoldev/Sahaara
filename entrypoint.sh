@@ -8,12 +8,6 @@ if [ ! -f /var/www/html/database/database.sqlite ]; then
     chmod 777 /var/www/html/database/database.sqlite
 fi
 
-# Copy custom Nginx configuration with Laravel try_files routing
-if [ -f /var/www/html/conf/nginx/nginx-site.conf ]; then
-    cp /var/www/html/conf/nginx/nginx-site.conf /etc/nginx/sites-available/default.conf
-    cp /var/www/html/conf/nginx/nginx-site.conf /etc/nginx/sites-enabled/default.conf 2>/dev/null || true
-fi
-
 # Support Railway's dynamic PORT if provided, else default to 80
 if [ -n "$PORT" ]; then
     find /etc/nginx -type f -exec sed -i "s/listen 80;/listen ${PORT};/g" {} + 2>/dev/null || true

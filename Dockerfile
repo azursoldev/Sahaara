@@ -5,6 +5,7 @@ WORKDIR /var/www/html
 COPY . /var/www/html
 
 ENV WEBROOT /var/www/html/public
+ENV PHP_CATCHALL 1
 ENV PHP_ERRORS_STDERR 1
 ENV RUN_SCRIPTS 1
 ENV REAL_IP_HEADER 1
@@ -16,10 +17,6 @@ ENV SKIP_COMPOSER 1
 RUN composer install --no-dev --optimize-autoloader --no-interaction
 
 RUN chmod -R 777 /var/www/html/storage /var/www/html/bootstrap/cache /var/www/html/database
-
-# Copy custom Nginx configuration directly into Nginx sites directory
-COPY conf/nginx/nginx-site.conf /etc/nginx/sites-available/default.conf
-RUN cp /etc/nginx/sites-available/default.conf /etc/nginx/sites-enabled/default.conf 2>/dev/null || true
 
 COPY entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh

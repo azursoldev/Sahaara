@@ -13,5 +13,7 @@ ENV APP_DEBUG false
 ENV LOG_CHANNEL stderr
 ENV COMPOSER_ALLOW_SUPERUSER 1
 
-CMD ["/start.sh"]
+COPY entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
 
+ENTRYPOINT ["/entrypoint.sh"]

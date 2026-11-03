@@ -10,3 +10,4 @@ if [ -f /var/www/html/database/database.sqlite ]; then
 fi
 
 echo "Startup complete!"
+
